@@ -9,7 +9,7 @@
 - [ ] ?
 - [ ] ?
 
-# Reapply Angular Material redesign
+## Reapply Angular Material Redesign
 
 ```text
 Work in this Angular repository and implement a Material 3 visual redesign.
