@@ -1,197 +1,156 @@
-- [Installation Commands](#installation-commands)
-  - [Compatibility](#compatibility)
-- [Installation](#installation)
-  - [Install Node.js and npm](#install-nodejs-and-npm)
-  - [Install NVM (Node Version Manager)](#install-nvm-node-version-manager)
-  - [Install pnpm](#install-pnpm)
-  - [Install Angular CLI](#install-angular-cli)
-  - [Create a new Angular project](#create-a-new-angular-project)
-  - [Enter the project](#enter-the-project)
-  - [Install dependencies](#install-dependencies)
-  - [Start the development server](#start-the-development-server)
-  - [Build the application](#build-the-application)
-  - [Run unit tests](#run-unit-tests)
-  - [Run linting](#run-linting)
-  - [Add Angular Material](#add-angular-material)
+# Installation commands
 
----
+## Table of contents
 
-# Installation Commands
+- [(1) Compatibility](#1-compatibility)
+- [(2) Install the prerequisites](#2-install-the-prerequisites)
+- [(3) Install and run the project](#3-install-and-run-the-project)
+- [(4) Create another Angular 21 project](#4-create-another-angular-21-project)
+- [(5) Add Angular Material](#5-add-angular-material)
+- [(6) Upgrade an Angular 20 project](#6-upgrade-an-angular-20-project)
 
-## Compatibility
+## (1) Compatibility
 
-| Angular            | Node.js                               | TypeScript     | RxJS               | pnpm |
-| ------------------ | ------------------------------------- | -------------- | ------------------ | ---- |
-| 20.2.x \|\| 20.3.x | ^20.19.0 \|\| ^22.12.0 \|\| `^24.0.0` | >=5.8.0 <6.0.0 | ^6.5.3 \|\| ^7.4.0 | >=10 |
+Angular 21.2 uses the following compatibility ranges:
 
----
+| # | Angular | Node.js | TypeScript | RxJS |
+|---:|---|---|---|---|
+| 1 | `21.0.x` \|\| `21.1.x` \|\| `21.2.x` | `^20.19.0` \|\| `^22.12.0` \|\| `^24.0.0` | `>=5.9.0 <6.0.0` | `^6.5.3` \|\| `^7.4.0` |
 
-# Installation
+This repository uses:
 
-## Install Node.js and npm
+| # | Technology | Version |
+|---:|---|---|
+| 1 | Angular | `21.2.25` |
+| 2 | Angular CLI | `21.2.27` |
+| 3 | Angular Material and CDK | `21.2.14` |
+| 4 | TypeScript | `5.9.3` |
+| 5 | RxJS | `7.8.2` |
+| 6 | Zone.js | `0.16.3` |
+| 7 | pnpm | `11.17.0` |
 
-Angular requires a supported version of **Node.js**. The **npm** package manager is included automatically with every Node.js installation.
+Official compatibility matrix: <https://angular.dev/reference/versions>
 
-Supported versions:
+## (2) Install the prerequisites
 
-- Node.js **20.19.x** (recommended LTS)
-- Node.js **22.12.x** or later (LTS)
-- Node.js **24.x**
+### (2.1) Install Node.js
 
-Download Node.js:
+Angular 21 supports Node.js `20.19.x`, `22.12.x` or later within Node 22, and Node
+`24.x`. Download Node.js from <https://nodejs.org/>.
 
-- <https://nodejs.org/>
-
-After installation, verify:
+Verify the installation:
 
 ```bash
 node --version
 npm --version
 ```
 
-## Install NVM (Node Version Manager)
+### (2.2) Install NVM for Windows
 
-NVM for Windows allows multiple Node.js versions to coexist on the same machine.
+NVM for Windows allows multiple Node.js versions to coexist:
 
-Official resources:
+- Repository: <https://github.com/coreybutler/nvm-windows>
+- Releases: <https://github.com/coreybutler/nvm-windows/releases>
 
-- Repository:
-  - <https://github.com/coreybutler/nvm-windows>
-- Releases:
-  - <https://github.com/coreybutler/nvm-windows/releases>
+Example using Node.js 24:
 
-Verify:
-
-```bash
-nvm version
+```powershell
+nvm install 24.0.0
+nvm use 24.0.0
+node --version
 ```
 
 Common commands:
 
-| Command                 | Description                                   |
-| ----------------------- | --------------------------------------------- |
-| `nvm version`           | Show the installed NVM version.               |
-| `nvm list`              | List installed Node.js versions.              |
-| `nvm list available`    | List available Node.js versions.              |
-| `nvm install 20.19.0`   | Install Node.js 20.19.0.                      |
-| `nvm install 22.12.0`   | Install Node.js 22.12.0.                      |
-| `nvm install latest`    | Install the latest available Node.js version. |
-| `nvm use 20.19.0`       | Switch to Node.js 20.19.0.                    |
-| `nvm current`           | Display the active Node.js version.           |
-| `nvm uninstall 20.19.0` | Remove a Node.js version.                     |
+| # | Command | Description |
+|---:|---|---|
+| 1 | `nvm version` | Show the installed NVM version. |
+| 2 | `nvm list` | List installed Node.js versions. |
+| 3 | `nvm list available` | List downloadable Node.js versions. |
+| 4 | `nvm install 24.0.0` | Install Node.js 24.0.0. |
+| 5 | `nvm use 24.0.0` | Activate Node.js 24.0.0. |
+| 6 | `nvm current` | Display the active Node.js version. |
 
-Example:
+### (2.3) Install pnpm
 
-```bash
-nvm install 20.19.0
-nvm use 20.19.0
-
-node --version
-npm --version
-```
-
-## Install pnpm
-
-Install pnpm 10 globally:
+Install pnpm 11 globally:
 
 ```bash
-npm install --global pnpm@10
-```
-
-Verify:
-
-```bash
+npm install --global pnpm@11
 pnpm --version
 ```
 
-## Install Angular CLI
+The `packageManager` property in `package.json` records the exact pnpm release used by
+this repository.
 
-Install Angular CLI 20 globally:
+## (3) Install and run the project
 
-```bash
-pnpm add --global @angular/cli@20
-```
+Run these commands from the repository root:
 
-Verify:
+1. Install the locked dependencies.
 
-```bash
-ng version
-```
+   ```bash
+   pnpm install
+   ```
 
-## Create a new Angular project
+2. Start the development server.
 
-Interactive:
+   ```bash
+   pnpm start
+   ```
 
-```bash
-pnpm create @angular@20
-```
+3. Open <http://localhost:4200/>.
 
-With a project name:
+Additional commands:
 
-```bash
-pnpm create @angular@20 my-app
-```
+| # | Command | Description |
+|---:|---|---|
+| 1 | `pnpm build` | Create an optimized production build. |
+| 2 | `pnpm watch` | Rebuild continuously using the development configuration. |
+| 3 | `pnpm test` | Run the Jasmine and Karma tests. |
+| 4 | `pnpm exec tsc --noEmit -p tsconfig.app.json` | Type-check the application without emitting files. |
 
-## Enter the project
+## (4) Create another Angular 21 project
 
-```bash
-cd my-app
-```
-
-## Install dependencies
+Create a project without installing Angular CLI globally:
 
 ```bash
-pnpm install
+pnpm create @angular@21 my-app
 ```
 
-## Start the development server
-
-Using the project script:
+Alternatively, install the Angular 21 CLI globally:
 
 ```bash
-pnpm start
+pnpm add --global @angular/cli@21
+ng new my-app
 ```
 
-Or directly with Angular CLI:
+## (5) Add Angular Material
+
+Use the Angular schematic when adding Material to another Angular 21 application:
 
 ```bash
-ng serve
+ng add @angular/material@21
 ```
 
-Browse to:
-
-<http://localhost:4200>
-
-## Build the application
+For a manual installation aligned with this repository:
 
 ```bash
-pnpm build
+pnpm add @angular/material@21.2.14 @angular/cdk@21.2.14
 ```
 
-## Run unit tests
+The legacy `@angular/animations` package is not required by this application. Angular
+deprecated that package in v20.2 in favor of native CSS and `animate.enter` or
+`animate.leave`.
+
+## (6) Upgrade an Angular 20 project
+
+Run official Angular migrations one major version at a time:
 
 ```bash
-pnpm test
+ng update @angular/core@21 @angular/cli@21
+ng update @angular/material@21
 ```
 
-## Run linting
-
-If linting is configured:
-
-```bash
-pnpm lint
-```
-
-## Add Angular Material
-
-Recommended:
-
-```bash
-ng add @angular/material@20
-```
-
-Manual installation:
-
-```bash
-pnpm add @angular/material@20 @angular/cdk@20 @angular/animations@20
-```
+Review the migration output, reinstall dependencies, and run type-checking, tests, and a
+production build before merging the upgrade.

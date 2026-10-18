@@ -3,7 +3,8 @@
 - [x] Repasar video
 - [x] Agregar archivos de configuración (base)
 - [x] Estudiar notas para 20.3.x
-- [ ] Agregar tema base: Angular Material
+- [x] Agregar tema base: Angular Material
+- [x] Actualizar el proyecto a Angular 21.2.25
 - [ ] ?
 - [ ] ?
 - [ ] ?
@@ -16,15 +17,15 @@ Work in this Angular repository and implement a Material 3 visual redesign.
 
 Constraints:
 - Preserve the existing routing files, paths, lazy-loading, guards, feature folders, and component structure.
-- Do not upgrade or change existing Angular 20.3.x package versions.
-- Add only Angular Material packages compatible with Angular 20.3.x:
-  - @angular/material@20.2.14
-  - @angular/cdk@20.2.14
+- Do not upgrade or change existing Angular 21.2.x package versions.
+- Add only Angular Material packages compatible with Angular 21.2.x:
+  - @angular/material@21.2.14
+  - @angular/cdk@21.2.14
 - Use pnpm and update pnpm-lock.yaml.
 - Do not add a new design system, external UI library, or unrelated functionality.
 - Keep all existing components standalone.
 - Use Angular Material components where appropriate.
-- Add provideAnimationsAsync() in app.config.ts.
+- Do not add the deprecated @angular/animations package or provideAnimationsAsync().
 
 Theming:
 - Apply Angular Material’s Material 3 Azure Blue prebuilt theme in src/styles.css:
@@ -51,7 +52,7 @@ Apply these UI changes:
 
 3. Footer
 - Use MatDivider and a minimal centered footer.
-- Text: “Angular v20.3.x starter”.
+- Text: “Angular v21.2.x starter”.
 
 4. Authentication screens
 - Convert login and register screens to centered MatCard layouts.

@@ -15,7 +15,7 @@ ng-template-one/               # Root repository folder
 ├── tsconfig.spec.json         # Test-specific TypeScript config
 ├── docs/                      # Documentation content and guides
 │   ├── content/               # General documentation content
-│   └── v20.3.x/               # Versioned Angular docs and examples
+│   └── v20.3.x/               # Archived Angular 20 reference notes and examples
 └── src/                       # Application source files
     ├── index.html             # App shell HTML entry point
     ├── main.ts                # Angular bootstrap entry point
@@ -44,6 +44,12 @@ ng-template-one/               # Root repository folder
 ## Mermaid diagram
 
 ```mermaid
+---
+title: "~ Project structure ~"
+config:
+  theme: dark
+---
+
 flowchart TD
     classDef root fill:#020617,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
     classDef group fill:#0b1220,stroke:#60a5fa,stroke-width:1.5px,color:#e2e8f0;
