@@ -1,4 +1,4 @@
-# 20 — Inject-based Dependency Injection
+# 20 — Inject-based dependency injection
 
 Use the `inject()` function to retrieve a service instance inside a component class property initializer.
 

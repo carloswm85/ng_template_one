@@ -1,30 +1,17 @@
-- [Common `angular.json` configuration (Angular 20.3.x)](#common-angularjson-configuration-angular-203x)
-  - [Table of Contents](#table-of-contents)
-  - [(1) Workspace-level configuration](#1-workspace-level-configuration)
-    - [(1.1) `cli`](#11-cli)
-    - [(1.2) `schematics`](#12-schematics)
-  - [(2) Project configuration](#2-project-configuration)
-  - [(3) Architect (targets)](#3-architect-targets)
-  - [(4) Common build options](#4-common-build-options)
-  - [(5) Build configurations](#5-build-configurations)
-  - [(6) Serve options](#6-serve-options)
-  - [(7) Common configuration example](#7-common-configuration-example)
-  - [Notes](#notes)
-
----
-
 # Common `angular.json` configuration (Angular 20.3.x)
 
-## Table of Contents
+## Table of contents
 
-- Workspace-level configuration
-- Project configuration
-- Architect (targets)
-- Build options
-- Build configurations
-- Serve options
-- Common configuration example
-- Notes
+- [(1) Workspace-level configuration](#1-workspace-level-configuration)
+  - [(1.1) `cli`](#11-cli)
+  - [(1.2) `schematics`](#12-schematics)
+- [(2) Project configuration](#2-project-configuration)
+- [(3) Architect (targets)](#3-architect-targets)
+- [(4) Common build options](#4-common-build-options)
+- [(5) Build configurations](#5-build-configurations)
+- [(6) Serve options](#6-serve-options)
+- [(7) Common configuration example](#7-common-configuration-example)
+- [(8) Notes](#8-notes)
 
 ---
 
@@ -34,13 +21,13 @@ The `angular.json` file defines how the Angular CLI builds, serves, tests, and g
 
 These properties apply to the entire Angular workspace.
 
-| Property         | Purpose                                       | Typical value                               |
-| ---------------- | --------------------------------------------- | ------------------------------------------- |
-| `version`        | Configuration schema version                  | `1`                                         |
-| `newProjectRoot` | Default location for newly generated projects | `"projects"`                                |
-| `cli`            | Angular CLI behavior                          | Cache, analytics, package manager           |
-| `schematics`     | Default options for `ng generate`             | Component defaults, standalone, style, etc. |
-| `projects`       | All applications and libraries                | Object containing project definitions       |
+| # | Property         | Purpose                                       | Typical value                               |
+| ---: | ---------------- | --------------------------------------------- | ------------------------------------------- |
+| 1 | `version`        | Configuration schema version                  | `1`                                         |
+| 2 | `newProjectRoot` | Default location for newly generated projects | `"projects"`                                |
+| 3 | `cli`            | Angular CLI behavior                          | Cache, analytics, package manager           |
+| 4 | `schematics`     | Default options for `ng generate`             | Component defaults, standalone, style, etc. |
+| 5 | `projects`       | All applications and libraries                | Object containing project definitions       |
 
 Example:
 
@@ -61,13 +48,13 @@ Example:
 
 Configures the Angular CLI itself.
 
-| Property               | Description                                              |
-| ---------------------- | -------------------------------------------------------- |
-| `analytics`            | Enable anonymous usage reporting                         |
-| `cache`                | Configure persistent disk cache                          |
-| `packageManager`       | Preferred package manager (`npm`, `pnpm`, `yarn`, `bun`) |
-| `schematicCollections` | Additional schematic packages                            |
-| `warnings`             | CLI warning settings                                     |
+| # | Property               | Description                                              |
+| ---: | ---------------------- | -------------------------------------------------------- |
+| 1 | `analytics`            | Enable anonymous usage reporting                         |
+| 2 | `cache`                | Configure persistent disk cache                          |
+| 3 | `packageManager`       | Preferred package manager (`npm`, `pnpm`, `yarn`, `bun`) |
+| 4 | `schematicCollections` | Additional schematic packages                            |
+| 5 | `warnings`             | CLI warning settings                                     |
 
 Example:
 
@@ -132,14 +119,14 @@ Example:
 
 Common project properties:
 
-| Property      | Description                           |
-| ------------- | ------------------------------------- |
-| `root`        | Project root directory                |
-| `sourceRoot`  | Source code directory                 |
-| `projectType` | `application` or `library`            |
-| `prefix`      | Prefix for generated selectors        |
-| `architect`   | Build, serve, test, and other targets |
-| `i18n`        | Internationalization configuration    |
+| # | Property      | Description                           |
+| ---: | ------------- | ------------------------------------- |
+| 1 | `root`        | Project root directory                |
+| 2 | `sourceRoot`  | Source code directory                 |
+| 3 | `projectType` | `application` or `library`            |
+| 4 | `prefix`      | Prefix for generated selectors        |
+| 5 | `architect`   | Build, serve, test, and other targets |
+| 6 | `i18n`        | Internationalization configuration    |
 
 Example:
 
@@ -160,13 +147,13 @@ The `architect` section defines every executable target.
 
 Typical targets include:
 
-| Target         | CLI command       | Purpose                             |
-| -------------- | ----------------- | ----------------------------------- |
-| `build`        | `ng build`        | Build the application               |
-| `serve`        | `ng serve`        | Start the development server        |
-| `test`         | `ng test`         | Run unit tests                      |
-| `extract-i18n` | `ng extract-i18n` | Extract translation messages        |
-| `lint`         | `ng lint`         | Run static analysis (if configured) |
+| # | Target         | CLI command       | Purpose                             |
+| ---: | -------------- | ----------------- | ----------------------------------- |
+| 1 | `build`        | `ng build`        | Build the application               |
+| 2 | `serve`        | `ng serve`        | Start the development server        |
+| 3 | `test`         | `ng test`         | Run unit tests                      |
+| 4 | `extract-i18n` | `ng extract-i18n` | Extract translation messages        |
+| 5 | `lint`         | `ng lint`         | Run static analysis (if configured) |
 
 Example:
 
@@ -180,11 +167,11 @@ Example:
 
 Each target generally contains:
 
-| Property         | Description                        |
-| ---------------- | ---------------------------------- |
-| `builder`        | Builder used to execute the target |
-| `options`        | Default settings                   |
-| `configurations` | Environment-specific overrides     |
+| # | Property         | Description                        |
+| ---: | ---------------- | ---------------------------------- |
+| 1 | `builder`        | Builder used to execute the target |
+| 2 | `options`        | Default settings                   |
+| 3 | `configurations` | Environment-specific overrides     |
 
 ---
 
@@ -200,24 +187,24 @@ projects
             └── options
 ```
 
-| Option                     | Purpose                                                   |
-| -------------------------- | --------------------------------------------------------- |
-| `outputPath`               | Build output directory                                    |
-| `index`                    | HTML entry file                                           |
-| `browser`                  | Main application entry point                              |
-| `polyfills`                | Polyfill files                                            |
-| `tsConfig`                 | TypeScript configuration                                  |
-| `assets`                   | Static assets copied to the output                        |
-| `styles`                   | Global stylesheets                                        |
-| `scripts`                  | Global JavaScript files                                   |
-| `inlineStyleLanguage`      | Default inline style language                             |
-| `stylePreprocessorOptions` | SCSS/Sass include paths                                   |
-| `budgets`                  | Bundle size limits                                        |
-| `fileReplacements`         | Replace files for specific configurations                 |
-| `optimization`             | Production optimizations                                  |
-| `sourceMap`                | Generate source maps                                      |
-| `outputHashing`            | Enable cache-busting hashes                               |
-| `security`                 | Security-related options such as automatic CSP generation |
+| # | Option                     | Purpose                                                   |
+| ---: | -------------------------- | --------------------------------------------------------- |
+| 1 | `outputPath`               | Build output directory                                    |
+| 2 | `index`                    | HTML entry file                                           |
+| 3 | `browser`                  | Main application entry point                              |
+| 4 | `polyfills`                | Polyfill files                                            |
+| 5 | `tsConfig`                 | TypeScript configuration                                  |
+| 6 | `assets`                   | Static assets copied to the output                        |
+| 7 | `styles`                   | Global stylesheets                                        |
+| 8 | `scripts`                  | Global JavaScript files                                   |
+| 9 | `inlineStyleLanguage`      | Default inline style language                             |
+| 10 | `stylePreprocessorOptions` | SCSS/Sass include paths                                   |
+| 11 | `budgets`                  | Bundle size limits                                        |
+| 12 | `fileReplacements`         | Replace files for specific configurations                 |
+| 13 | `optimization`             | Production optimizations                                  |
+| 14 | `sourceMap`                | Generate source maps                                      |
+| 15 | `outputHashing`            | Enable cache-busting hashes                               |
+| 16 | `security`                 | Security-related options such as automatic CSP generation |
 
 Example:
 
@@ -248,12 +235,12 @@ Configurations override build options for different environments.
 
 Typical examples:
 
-| Configuration | Usage                       |
-| ------------- | --------------------------- |
-| `development` | Local development           |
-| `production`  | Optimized production build  |
-| `staging`     | Optional staging deployment |
-| `qa`          | Quality assurance           |
+| # | Configuration | Usage                       |
+| ---: | ------------- | --------------------------- |
+| 1 | `development` | Local development           |
+| 2 | `production`  | Optimized production build  |
+| 3 | `staging`     | Optional staging deployment |
+| 4 | `qa`          | Quality assurance           |
 
 Example:
 
@@ -298,10 +285,10 @@ The `serve` target typically references the `build` target and may add developme
 
 Common properties:
 
-| Property       | Description                                   |
-| -------------- | --------------------------------------------- |
-| `buildTarget`  | Build target to use                           |
-| `allowedHosts` | Hosts accepted by the Vite development server |
+| # | Property       | Description                                   |
+| ---: | -------------- | --------------------------------------------- |
+| 1 | `buildTarget`  | Build target to use                           |
+| 2 | `allowedHosts` | Hosts accepted by the Vite development server |
 
 Example:
 
@@ -351,7 +338,7 @@ angular.json
 
 ---
 
-## Notes
+## (8) Notes
 
 - Angular 20 uses the modern **Application Builder** (`@angular/build:application`) for newly created applications.
 - All property names in `angular.json` use **camelCase**, even when the corresponding CLI options use **dash-case** (for example, `outputHashing` vs. `--output-hashing`).

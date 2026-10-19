@@ -4,10 +4,15 @@
 
 - [(1) Compatibility](#1-compatibility)
 - [(2) Install the prerequisites](#2-install-the-prerequisites)
+  - [(2.1) Install Node.js](#21-install-nodejs)
+  - [(2.2) Install NVM for Windows](#22-install-nvm-for-windows)
+  - [(2.3) Install pnpm](#23-install-pnpm)
 - [(3) Install and run the project](#3-install-and-run-the-project)
 - [(4) Create another Angular 21 project](#4-create-another-angular-21-project)
 - [(5) Add Angular Material](#5-add-angular-material)
 - [(6) Upgrade an Angular 20 project](#6-upgrade-an-angular-20-project)
+
+---
 
 ## (1) Compatibility
 
@@ -30,6 +35,8 @@ This repository uses:
 | 7 | pnpm | `11.17.0` |
 
 Official compatibility matrix: <https://angular.dev/reference/versions>
+
+---
 
 ## (2) Install the prerequisites
 
@@ -83,6 +90,8 @@ pnpm --version
 The `packageManager` property in `package.json` records the exact pnpm release used by
 this repository.
 
+---
+
 ## (3) Install and run the project
 
 Run these commands from the repository root:
@@ -110,6 +119,8 @@ Additional commands:
 | 3 | `pnpm test` | Run the Jasmine and Karma tests. |
 | 4 | `pnpm exec tsc --noEmit -p tsconfig.app.json` | Type-check the application without emitting files. |
 
+---
+
 ## (4) Create another Angular 21 project
 
 Create a project without installing Angular CLI globally:
@@ -124,6 +135,8 @@ Alternatively, install the Angular 21 CLI globally:
 pnpm add --global @angular/cli@21
 ng new my-app
 ```
+
+---
 
 ## (5) Add Angular Material
 
@@ -142,6 +155,8 @@ pnpm add @angular/material@21.2.14 @angular/cdk@21.2.14
 The legacy `@angular/animations` package is not required by this application. Angular
 deprecated that package in v20.2 in favor of native CSS and `animate.enter` or
 `animate.leave`.
+
+---
 
 ## (6) Upgrade an Angular 20 project
 

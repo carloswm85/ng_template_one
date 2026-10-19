@@ -1,4 +1,4 @@
-# 05 — Control Flow: `@for`
+# 05 — Control flow: `@for`
 
 Use `@for` to repeat elements over an iterable. `track` is **required** and must uniquely identify each item.
 

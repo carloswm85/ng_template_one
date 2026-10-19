@@ -1,4 +1,4 @@
-# 03 — Composing Components
+# 03 — Composing components
 
 Use a component's `selector` as an HTML tag inside another component's template. Add it to `imports` to make it available.
 

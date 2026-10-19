@@ -1,4 +1,4 @@
-# 09 — Component Output Properties
+# 09 — Component output properties
 
 Use `output()` to emit custom events **from** a child component **to** its parent.
 

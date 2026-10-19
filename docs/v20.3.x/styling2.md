@@ -1,29 +1,28 @@
-- [Angular 20.3.x — Styling Techniques \& Frameworks](#angular-203x--styling-techniques--frameworks)
-	- [1. Inline Metadata Styles](#1-inline-metadata-styles)
-	- [2. External Stylesheets (`styleUrl` / `styleUrls`)](#2-external-stylesheets-styleurl--styleurls)
-	- [3. Style Binding \& Class Binding](#3-style-binding--class-binding)
-	- [4. Host Element Binding](#4-host-element-binding)
-	- [5. Programmatic Styling with `Renderer2`](#5-programmatic-styling-with-renderer2)
-	- [6. View Encapsulation](#6-view-encapsulation)
-	- [7. CSS `@layer` (Modern Cascade Management)](#7-css-layer-modern-cascade-management)
-	- [8. Global Styles](#8-global-styles)
-	- [Styling Frameworks — Integration Guide](#styling-frameworks--integration-guide)
-		- [Angular Material (Recommended First Choice)](#angular-material-recommended-first-choice)
-		- [Tailwind CSS v4](#tailwind-css-v4)
-		- [PrimeNG v20](#primeng-v20)
-		- [Bootstrap 5](#bootstrap-5)
-		- [UnoCSS](#unocss)
-	- [Summary Comparison](#summary-comparison)
+# Angular 20.3.x — Styling techniques & frameworks
 
----
+## Table of contents
+
+- [(1) Inline metadata styles](#1-inline-metadata-styles)
+- [(2) External stylesheets (`styleUrl` / `styleUrls`)](#2-external-stylesheets-styleurl--styleurls)
+- [(3) Style binding & class binding](#3-style-binding--class-binding)
+- [(4) Host element binding](#4-host-element-binding)
+- [(5) Programmatic styling with `Renderer2`](#5-programmatic-styling-with-renderer2)
+- [(6) View encapsulation](#6-view-encapsulation)
+- [(7) CSS `@layer` (modern cascade management)](#7-css-layer-modern-cascade-management)
+- [(8) Global styles](#8-global-styles)
+- [(9) Styling frameworks — integration guide](#9-styling-frameworks--integration-guide)
+  - [(9.1) Angular Material (recommended first choice)](#91-angular-material-recommended-first-choice)
+  - [(9.2) Tailwind CSS v4](#92-tailwind-css-v4)
+  - [(9.3) PrimeNG v20](#93-primeng-v20)
+  - [(9.4) Bootstrap 5](#94-bootstrap-5)
+  - [(9.5) UnoCSS](#95-unocss)
+- [(10) Summary comparison](#10-summary-comparison)
 
 > Explanation generated with Claude
 
-# Angular 20.3.x — Styling Techniques & Frameworks
-
 ---
 
-## 1. Inline Metadata Styles
+## (1) Inline metadata styles
 
 Styles declared directly in the `@Component` decorator. Best for small, self-contained components.
 
@@ -46,7 +45,7 @@ export class CardComponent {}
 
 ---
 
-## 2. External Stylesheets (`styleUrl` / `styleUrls`)
+## (2) External stylesheets (`styleUrl` / `styleUrls`)
 
 Link to `.css`, `.scss`, `.sass`, or `.less` files. Preferred for most components.
 
@@ -70,7 +69,7 @@ export class HeroComponent {}
 
 ---
 
-## 3. Style Binding & Class Binding
+## (3) Style binding & class binding
 
 Dynamic styling driven by component state, applied directly in the template.
 
@@ -92,7 +91,7 @@ Dynamic styling driven by component state, applied directly in the template.
 
 ---
 
-## 4. Host Element Binding
+## (4) Host element binding
 
 Apply styles directly to the component's host element, without wrapper `<div>`s.
 
@@ -128,7 +127,7 @@ export class BadgeComponent {
 
 ---
 
-## 5. Programmatic Styling with `Renderer2`
+## (5) Programmatic styling with `Renderer2`
 
 Manipulate styles at runtime without direct DOM access. SSR-safe.
 
@@ -152,16 +151,16 @@ export class DynamicComponent {
 
 ---
 
-## 6. View Encapsulation
+## (6) View encapsulation
 
 Angular provides four view encapsulation modes: `Emulated`, `ShadowDom`, `ExperimentalIsolatedShadowDom`, and `None`, configurable via the `@Component` decorator.
 
-| Mode                            | Behavior                                         | Use Case                       |
-| ------------------------------- | ------------------------------------------------ | ------------------------------ |
-| `Emulated` _(default)_          | Adds scoped attribute selectors (`_ngcontent-*`) | Most components                |
-| `None`                          | Styles become global                             | Shared/layout components       |
-| `ShadowDom`                     | Native browser Shadow DOM isolation              | True encapsulation needed      |
-| `ExperimentalIsolatedShadowDom` | Stricter Shadow DOM, CSS variables required      | Preview — targeting Angular 21 |
+| # | Mode                            | Behavior                                         | Use Case                       |
+| ---: | ------------------------------- | ------------------------------------------------ | ------------------------------ |
+| 1 | `Emulated` _(default)_          | Adds scoped attribute selectors (`_ngcontent-*`) | Most components                |
+| 2 | `None`                          | Styles become global                             | Shared/layout components       |
+| 3 | `ShadowDom`                     | Native browser Shadow DOM isolation              | True encapsulation needed      |
+| 4 | `ExperimentalIsolatedShadowDom` | Stricter Shadow DOM, CSS variables required      | Preview — targeting Angular 21 |
 
 ```typescript
 import { ViewEncapsulation } from '@angular/core';
@@ -178,7 +177,7 @@ export class IsolatedComponent {}
 
 ---
 
-## 7. CSS `@layer` (Modern Cascade Management)
+## (7) CSS `@layer` (modern cascade management)
 
 With Angular 20 and modern CSS layers, styles can now be organized without `!important` wars — every layer knows its place in the cascade.
 
@@ -203,7 +202,7 @@ With Angular 20 and modern CSS layers, styles can now be organized without `!imp
 
 ---
 
-## 8. Global Styles
+## (8) Global styles
 
 Styles in `styles.css` / `styles.scss` (root), referenced in `angular.json`.
 
@@ -229,9 +228,9 @@ Styles in `styles.css` / `styles.scss` (root), referenced in `angular.json`.
 
 ---
 
-## Styling Frameworks — Integration Guide
+## (9) Styling frameworks — integration guide
 
-### Angular Material (Recommended First Choice)
+### (9.1) Angular Material (recommended first choice)
 
 Official Angular UI component library with M3 theming, signal-based APIs in v20.
 
@@ -269,7 +268,7 @@ html {
 
 ---
 
-### Tailwind CSS v4
+### (9.2) Tailwind CSS v4
 
 Utility-first CSS framework. In v4, configuration moves entirely into CSS (no `tailwind.config.js`).
 
@@ -291,7 +290,7 @@ npm install tailwindcss @tailwindcss/vite
 
 ---
 
-### PrimeNG v20
+### (9.3) PrimeNG v20
 
 PrimeNG provides a wide range of highly accessible, feature-rich UI components and offers official integration with Tailwind CSS via the `tailwindcss-primeui` plugin.
 
@@ -332,7 +331,7 @@ export const appConfig: ApplicationConfig = {
 
 ---
 
-### Bootstrap 5
+### (9.4) Bootstrap 5
 
 Classic component framework. Include via CDN or npm.
 
@@ -350,7 +349,7 @@ npm install bootstrap @popperjs/core
 
 ---
 
-### UnoCSS
+### (9.5) UnoCSS
 
 Atomic CSS engine — faster than Tailwind, on-demand generation, highly configurable.
 
@@ -373,12 +372,12 @@ export default { plugins: [UnoCSS()] };
 
 ---
 
-## Summary Comparison
+## (10) Summary comparison
 
-| Framework            | Angular Integration | Theming System         | Bundle Impact | Best For                   |
-| -------------------- | ------------------- | ---------------------- | ------------- | -------------------------- |
-| **Angular Material** | ⭐ Native           | M3 Design Tokens       | Medium        | Enterprise / Google Design |
-| **PrimeNG**          | ⭐ Native           | Presets (`Aura`, etc.) | Medium-Large  | Rich data-heavy UIs        |
-| **Tailwind CSS v4**  | ✅ Plugin           | CSS-native config      | Low (purged)  | Utility-first custom UIs   |
-| **Bootstrap 5**      | ⚠️ Manual           | Sass variables         | Medium        | Rapid prototyping          |
-| **UnoCSS**           | ✅ Plugin           | Presets + custom       | Very Low      | Performance-critical apps  |
+| # | Framework            | Angular Integration | Theming System         | Bundle Impact | Best For                   |
+| ---: | -------------------- | ------------------- | ---------------------- | ------------- | -------------------------- |
+| 1 | **Angular Material** | ⭐ Native           | M3 Design Tokens       | Medium        | Enterprise / Google Design |
+| 2 | **PrimeNG**          | ⭐ Native           | Presets (`Aura`, etc.) | Medium-Large  | Rich data-heavy UIs        |
+| 3 | **Tailwind CSS v4**  | ✅ Plugin           | CSS-native config      | Low (purged)  | Utility-first custom UIs   |
+| 4 | **Bootstrap 5**      | ⚠️ Manual           | Sass variables         | Medium        | Rapid prototyping          |
+| 5 | **UnoCSS**           | ✅ Plugin           | Presets + custom       | Very Low      | Performance-critical apps  |

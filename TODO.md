@@ -1,4 +1,4 @@
-# TODO List
+# TODO list
 
 - [x] Repasar video
 - [x] Agregar archivos de configuración (base)
@@ -10,7 +10,9 @@
 - [ ] ?
 - [ ] ?
 
-## Reapply Angular Material Redesign
+---
+
+## (1) Reapply Angular Material redesign
 
 ```text
 Work in this Angular repository and implement a Material 3 visual redesign.

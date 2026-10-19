@@ -1,4 +1,4 @@
-# 12 — Enable Routing
+# 12 — Enable routing
 
 Three steps to set up the Angular Router: define routes, register the provider, add the outlet.
 

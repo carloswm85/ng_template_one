@@ -1,4 +1,4 @@
-# 17 — Reactive Forms
+# 17 — Reactive forms
 
 - Reactive forms manage form state in the component class using `FormGroup` and `FormControl`.
 - Logic stays in TypeScript, not the template.

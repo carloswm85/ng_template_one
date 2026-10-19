@@ -1,4 +1,4 @@
-# 13 — Define a Route
+# 13 — Define a route
 
 Each route object maps a URL `path` to a `component`. Add `title` to set the browser tab title automatically.
 
@@ -22,7 +22,9 @@ export const routes: Routes = [
 ];
 ```
 
-## Another Example
+---
+
+## (1) Another example
 
 ```ts
 // app.routes.ts — define application routes

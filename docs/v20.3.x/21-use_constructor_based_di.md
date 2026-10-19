@@ -1,4 +1,4 @@
-# 21 — Constructor-based Dependency Injection
+# 21 — Constructor-based dependency injection
 
 An alternative to `inject()` is declaring dependencies as **constructor parameters**. Angular resolves and injects them automatically based on their type.
 
@@ -48,13 +48,15 @@ export class App {
 }
 ```
 
-**Constructor DI vs `inject()` — when to use each:**
+---
 
-|                 | `inject()`                            | Constructor DI                    |
-| --------------- | ------------------------------------- | --------------------------------- |
-| Style           | Functional / modern                   | Class-based / traditional         |
-| Works in        | Field initializers, factories, guards | Constructor body only             |
-| Recommended for | Standalone components (Angular 14+)   | Libraries, pre-existing codebases |
-| Testability     | Easy to mock                          | Easy to mock                      |
+## (1) Constructor DI vs `inject()` — when to use each
+
+| # |                 | `inject()`                            | Constructor DI                    |
+| ---: | --------------- | ------------------------------------- | --------------------------------- |
+| 1 | Style           | Functional / modern                   | Class-based / traditional         |
+| 2 | Works in        | Field initializers, factories, guards | Constructor body only             |
+| 3 | Recommended for | Standalone components (Angular 14+)   | Libraries, pre-existing codebases |
+| 4 | Testability     | Easy to mock                          | Easy to mock                      |
 
 > Both approaches are fully supported in Angular 20. Prefer `inject()` for new standalone-component code.

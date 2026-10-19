@@ -1,18 +1,17 @@
-- [Angular Validators (Angular 20.3.x)](#angular-validators-angular-203x)
-	- [Built-in validators](#built-in-validators)
-	- [Example](#example)
-	- [Custom validators](#custom-validators)
-	- [Simple custom validator](#simple-custom-validator)
-	- [Validator with parameters](#validator-with-parameters)
-	- [Cross-field validator (FormGroup)](#cross-field-validator-formgroup)
-	- [Asynchronous validator](#asynchronous-validator)
-	- [Validation errors](#validation-errors)
-	- [Signals and forms](#signals-and-forms)
-	- [Summary](#summary)
+# Angular validators (Angular 20.3.x)
 
----
+## Table of contents
 
-# Angular Validators (Angular 20.3.x)
+- [(1) Built-in validators](#1-built-in-validators)
+- [(2) Example](#2-example)
+- [(3) Custom validators](#3-custom-validators)
+- [(4) Simple custom validator](#4-simple-custom-validator)
+- [(5) Validator with parameters](#5-validator-with-parameters)
+- [(6) Cross-field validator (FormGroup)](#6-cross-field-validator-formgroup)
+- [(7) Asynchronous validator](#7-asynchronous-validator)
+- [(8) Validation errors](#8-validation-errors)
+- [(9) Signals and forms](#9-signals-and-forms)
+- [(10) Summary](#10-summary)
 
 Angular Reactive Forms provide both **built-in validators** (via the `Validators` class) and **custom validators** that you can create yourself.
 
@@ -23,27 +22,27 @@ Validators can be:
 
 ---
 
-## Built-in validators
+## (1) Built-in validators
 
-| Validator                        | Description                               | Applies to       |
-| -------------------------------- | ----------------------------------------- | ---------------- |
-| `Validators.required`            | Value must not be empty                   | Any control      |
-| `Validators.requiredTrue`        | Value must be `true`                      | Checkbox, toggle |
-| `Validators.email`               | Valid email address                       | Text             |
-| `Validators.minLength(n)`        | Minimum number of characters              | String, array    |
-| `Validators.maxLength(n)`        | Maximum number of characters              | String, array    |
-| `Validators.pattern(regex)`      | Must match a regular expression           | String           |
-| `Validators.min(n)`              | Minimum numeric value                     | Number           |
-| `Validators.max(n)`              | Maximum numeric value                     | Number           |
-| `Validators.nullValidator`       | Always returns `null` (always valid)      | Any control      |
-| `Validators.compose([...])`      | Combines multiple synchronous validators  | Any control      |
-| `Validators.composeAsync([...])` | Combines multiple asynchronous validators | Any control      |
+| # | Validator                        | Description                               | Applies to       |
+| ---: | -------------------------------- | ----------------------------------------- | ---------------- |
+| 1 | `Validators.required`            | Value must not be empty                   | Any control      |
+| 2 | `Validators.requiredTrue`        | Value must be `true`                      | Checkbox, toggle |
+| 3 | `Validators.email`               | Valid email address                       | Text             |
+| 4 | `Validators.minLength(n)`        | Minimum number of characters              | String, array    |
+| 5 | `Validators.maxLength(n)`        | Maximum number of characters              | String, array    |
+| 6 | `Validators.pattern(regex)`      | Must match a regular expression           | String           |
+| 7 | `Validators.min(n)`              | Minimum numeric value                     | Number           |
+| 8 | `Validators.max(n)`              | Maximum numeric value                     | Number           |
+| 9 | `Validators.nullValidator`       | Always returns `null` (always valid)      | Any control      |
+| 10 | `Validators.compose([...])`      | Combines multiple synchronous validators  | Any control      |
+| 11 | `Validators.composeAsync([...])` | Combines multiple asynchronous validators | Any control      |
 
 > `compose()` and `composeAsync()` are utility methods for combining validators rather than validators that enforce validation rules themselves.
 
 ---
 
-## Example
+## (2) Example
 
 ```ts
 import { FormControl, Validators } from '@angular/forms';
@@ -61,7 +60,7 @@ username = new FormControl<string>('', {
 
 ---
 
-## Custom validators
+## (3) Custom validators
 
 A custom validator is typically implemented as a `ValidatorFn`.
 
@@ -72,7 +71,7 @@ It receives an `AbstractControl` and returns either:
 
 ---
 
-## Simple custom validator
+## (4) Simple custom validator
 
 ```ts
 import {
@@ -104,7 +103,7 @@ username = new FormControl<string>('', {
 
 ---
 
-## Validator with parameters
+## (5) Validator with parameters
 
 A validator can also be implemented as a factory function.
 
@@ -141,7 +140,7 @@ title = new FormControl<string>('', {
 
 ---
 
-## Cross-field validator (FormGroup)
+## (6) Cross-field validator (FormGroup)
 
 Sometimes validation depends on multiple controls.
 
@@ -182,7 +181,7 @@ form = new FormGroup(
 
 ---
 
-## Asynchronous validator
+## (7) Asynchronous validator
 
 Asynchronous validators are useful when validation requires a server request.
 
@@ -227,21 +226,21 @@ username = new FormControl<string>('', {
 
 ---
 
-## Validation errors
+## (8) Validation errors
 
 Every validator returns an error object with a key you can inspect.
 
-| Validator       | Error object                                                  |
-| --------------- | ------------------------------------------------------------- |
-| `required`      | `{ required: true }`                                          |
-| `requiredTrue`  | `{ required: true }`                                          |
-| `email`         | `{ email: true }`                                             |
-| `minLength(3)`  | `{ minlength: { requiredLength: 3, actualLength: 2 } }`       |
-| `maxLength(10)` | `{ maxlength: { requiredLength: 10, actualLength: 15 } }`     |
-| `min(18)`       | `{ min: { min: 18, actual: 15 } }`                            |
-| `max(100)`      | `{ max: { max: 100, actual: 150 } }`                          |
-| `pattern(...)`  | `{ pattern: { requiredPattern: "...", actualValue: "..." } }` |
-| Custom          | Whatever object you return, e.g. `{ passwordMismatch: true }` |
+| # | Validator       | Error object                                                  |
+| ---: | --------------- | ------------------------------------------------------------- |
+| 1 | `required`      | `{ required: true }`                                          |
+| 2 | `requiredTrue`  | `{ required: true }`                                          |
+| 3 | `email`         | `{ email: true }`                                             |
+| 4 | `minLength(3)`  | `{ minlength: { requiredLength: 3, actualLength: 2 } }`       |
+| 5 | `maxLength(10)` | `{ maxlength: { requiredLength: 10, actualLength: 15 } }`     |
+| 6 | `min(18)`       | `{ min: { min: 18, actual: 15 } }`                            |
+| 7 | `max(100)`      | `{ max: { max: 100, actual: 150 } }`                          |
+| 8 | `pattern(...)`  | `{ pattern: { requiredPattern: "...", actualValue: "..." } }` |
+| 9 | Custom          | Whatever object you return, e.g. `{ passwordMismatch: true }` |
 
 You can access these through the control:
 
@@ -259,7 +258,7 @@ if (errors?.['passwordMismatch']) {
 
 ---
 
-## Signals and forms
+## (9) Signals and forms
 
 Angular Signals do not replace the Reactive Forms validation API.
 
@@ -273,14 +272,14 @@ Signals can be used to consume form state (for example, using `toSignal()`), but
 
 ---
 
-## Summary
+## (10) Summary
 
-| Validator type                              | Built into Angular | Reusable | Can access other controls | Async |
-| ------------------------------------------- | ------------------ | -------- | ------------------------- | ----- |
-| Built-in validators                         | ✅                 | ✅       | ❌                        | ❌    |
-| Custom validator (`ValidatorFn`)            | ❌                 | ✅       | ❌                        | ❌    |
-| Custom async validator (`AsyncValidatorFn`) | ❌                 | ✅       | ❌                        | ✅    |
-| Custom `FormGroup` validator                | ❌                 | ✅       | ✅                        | ❌    |
-| Custom async `FormGroup` validator          | ❌                 | ✅       | ✅                        | ✅    |
+| # | Validator type                              | Built into Angular | Reusable | Can access other controls | Async |
+| ---: | ------------------------------------------- | ------------------ | -------- | ------------------------- | ----- |
+| 1 | Built-in validators                         | ✅                 | ✅       | ❌                        | ❌    |
+| 2 | Custom validator (`ValidatorFn`)            | ❌                 | ✅       | ❌                        | ❌    |
+| 3 | Custom async validator (`AsyncValidatorFn`) | ❌                 | ✅       | ❌                        | ✅    |
+| 4 | Custom `FormGroup` validator                | ❌                 | ✅       | ✅                        | ❌    |
+| 5 | Custom async `FormGroup` validator          | ❌                 | ✅       | ✅                        | ✅    |
 
 In practice, applications typically use the built-in validators for common field constraints (required, length, pattern, and numeric ranges), while custom validators implement business-specific rules such as password confirmation, unique usernames, valid date ranges, or domain-specific validation logic.

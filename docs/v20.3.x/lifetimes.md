@@ -1,28 +1,29 @@
-- [Service's Lifetime (Angular 20.3.x)](#services-lifetime-angular-203x)
-	- [Examples](#examples)
-		- [1. Application singleton (`root`)](#1-application-singleton-root)
-		- [2. Platform singleton (`platform`)](#2-platform-singleton-platform)
-		- [3. Per-injector (`any`)](#3-per-injector-any)
-		- [4. Component-scoped service](#4-component-scoped-service)
-		- [5. Route-scoped service](#5-route-scoped-service)
-	- [Summary](#summary)
-		- [Recommendation](#recommendation)
+# Service lifetime (Angular 20.3.x)
+
+## Table of contents
+
+- [(1) Examples](#1-examples)
+  - [(1.1) Application singleton (`root`)](#11-application-singleton-root)
+  - [(1.2) Platform singleton (`platform`)](#12-platform-singleton-platform)
+  - [(1.3) Per-injector (`any`)](#13-per-injector-any)
+  - [(1.4) Component-scoped service](#14-component-scoped-service)
+  - [(1.5) Route-scoped service](#15-route-scoped-service)
+- [(2) Summary](#2-summary)
+  - [(2.1) Recommendation](#21-recommendation)
+
+| # | Provider location          | Instance lifetime                                                     | Typical use                                             |
+| ---: | -------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------- |
+| 1 | `providedIn: 'root'`       | **Singleton** (one instance for the entire application)               | Shared application state, APIs, authentication          |
+| 2 | `providedIn: 'platform'`   | One instance per Angular platform                                     | Multiple Angular applications sharing the same platform |
+| 3 | `providedIn: 'any'`        | One instance per injector (typically one per lazy-loaded environment) | Isolated instances for lazy-loaded features             |
+| 4 | `providers` on a component | One instance per component instance (and its descendants)             | Component-local state                                   |
+| 5 | `providers` on a route     | One instance per activated route injector                             | Route-scoped state and feature services                 |
 
 ---
 
-# Service's Lifetime (Angular 20.3.x)
+## (1) Examples
 
-| Provider location          | Instance lifetime                                                     | Typical use                                             |
-| -------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------- |
-| `providedIn: 'root'`       | **Singleton** (one instance for the entire application)               | Shared application state, APIs, authentication          |
-| `providedIn: 'platform'`   | One instance per Angular platform                                     | Multiple Angular applications sharing the same platform |
-| `providedIn: 'any'`        | One instance per injector (typically one per lazy-loaded environment) | Isolated instances for lazy-loaded features             |
-| `providers` on a component | One instance per component instance (and its descendants)             | Component-local state                                   |
-| `providers` on a route     | One instance per activated route injector                             | Route-scoped state and feature services                 |
-
-## Examples
-
-### 1. Application singleton (`root`)
+### (1.1) Application singleton (`root`)
 
 ```ts
 @Injectable({
@@ -36,7 +37,7 @@ export class AuthService {}
 
 ---
 
-### 2. Platform singleton (`platform`)
+### (1.2) Platform singleton (`platform`)
 
 ```ts
 @Injectable({
@@ -50,7 +51,7 @@ export class SharedPlatformService {}
 
 ---
 
-### 3. Per-injector (`any`)
+### (1.3) Per-injector (`any`)
 
 ```ts
 @Injectable({
@@ -65,7 +66,7 @@ export class FeatureCacheService {}
 
 ---
 
-### 4. Component-scoped service
+### (1.4) Component-scoped service
 
 ```ts
 @Component({
@@ -78,7 +79,7 @@ export class EditorComponent {}
 
 Each `EditorComponent` gets its **own** `EditorStateService`.
 
-```
+```text
 Editor #1
  └── EditorStateService (A)
 
@@ -88,7 +89,7 @@ Editor #2
 
 ---
 
-### 5. Route-scoped service
+### (1.5) Route-scoped service
 
 ```ts
 export const routes: Routes = [
@@ -104,17 +105,19 @@ export const routes: Routes = [
 - A new instance is created when the route's injector is created.
 - Destroyed when that route injector is destroyed.
 
-## Summary
+---
 
-| Scope                    | Singleton?            |
-| ------------------------ | --------------------- |
-| `providedIn: 'root'`     | ✅ Yes                |
-| `providedIn: 'platform'` | ✅ Yes (per platform) |
-| `providedIn: 'any'`      | ❌ No                 |
-| Component `providers`    | ❌ No                 |
-| Route `providers`        | ❌ No                 |
+## (2) Summary
 
-### Recommendation
+| # | Scope                    | Singleton?            |
+| ---: | ------------------------ | --------------------- |
+| 1 | `providedIn: 'root'`     | ✅ Yes                |
+| 2 | `providedIn: 'platform'` | ✅ Yes (per platform) |
+| 3 | `providedIn: 'any'`      | ❌ No                 |
+| 4 | Component `providers`    | ❌ No                 |
+| 5 | Route `providers`        | ❌ No                 |
+
+### (2.1) Recommendation
 
 For most Angular **20.3.x** applications:
 

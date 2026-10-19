@@ -1,6 +1,13 @@
-# Project Structure
+# Project structure
 
-## Terminal-style project tree
+## Table of contents
+
+- [(1) Terminal-style project tree](#1-terminal-style-project-tree)
+- [(2) Mermaid diagram](#2-mermaid-diagram)
+
+---
+
+## (1) Terminal-style project tree
 
 ```terminal
 ng-template-one/               # Root repository folder
@@ -41,7 +48,9 @@ ng-template-one/               # Root repository folder
     └── assets/                # Static assets such as images and fonts
 ```
 
-## Mermaid diagram
+---
+
+## (2) Mermaid diagram
 
 ```mermaid
 ---

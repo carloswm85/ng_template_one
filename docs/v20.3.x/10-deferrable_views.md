@@ -1,4 +1,4 @@
-# 10 — Deferrable Views
+# 10 — Deferrable views
 
 Use `@defer` to lazy-load heavy components, reducing the initial bundle and improving performance.
 
@@ -31,13 +31,15 @@ import { Comments } from './comments';
 export class App {}
 ```
 
-**Available triggers:**
+---
 
-| Trigger          | Loads when…                        |
-| ---------------- | ---------------------------------- |
-| `on idle`        | Browser is idle (default)          |
-| `on viewport`    | Element enters the viewport        |
-| `on interaction` | User clicks or focuses the element |
-| `on hover`       | User hovers over the element       |
-| `on timer(2s)`   | After a fixed delay                |
-| `when condition` | Expression becomes truthy          |
+## (1) Available triggers
+
+| # | Trigger          | Loads when…                        |
+| ---: | ---------------- | ---------------------------------- |
+| 1 | `on idle`        | Browser is idle (default)          |
+| 2 | `on viewport`    | Element enters the viewport        |
+| 3 | `on interaction` | User clicks or focuses the element |
+| 4 | `on hover`       | User hovers over the element       |
+| 5 | `on timer(2s)`   | After a fixed delay                |
+| 6 | `when condition` | Expression becomes truthy          |

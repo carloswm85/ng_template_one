@@ -1,4 +1,4 @@
-# 19 — Creating an Injectable Service
+# 19 — Creating an injectable service
 
 - Services encapsulate shared logic and data.
 - Mark them with `@Injectable` so Angular's DI system can provide them.

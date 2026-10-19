@@ -1,4 +1,4 @@
-# 24 — Create a Custom Pipe
+# 24 — Create a custom pipe
 
 Implement `PipeTransform` and decorate with `@Pipe` to build a reusable data transformation.
 
@@ -38,7 +38,9 @@ export class App {
 }
 ```
 
-**Another example — `StarPipe`:**
+---
+
+## (1) Another example — `StarPipe`
 
 ```ts
 @Pipe({ name: 'star' })

@@ -1,4 +1,4 @@
-# 23 — Formatting Data with Pipes
+# 23 — Formatting data with pipes
 
 Pass parameters to pipes using `:` after the pipe name.
 

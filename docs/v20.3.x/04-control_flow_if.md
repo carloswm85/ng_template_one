@@ -1,4 +1,4 @@
-# 04 — Control Flow: `@if`
+# 04 — Control flow: `@if`
 
 Use `@if` / `@else` to conditionally render elements directly in the template.
 

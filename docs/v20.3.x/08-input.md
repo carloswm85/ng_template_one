@@ -1,4 +1,4 @@
-# 08 — Component Input Properties
+# 08 — Component input properties
 
 Use `input()` to pass data **into** a child component from its parent (similar to `props` in other frameworks).
 

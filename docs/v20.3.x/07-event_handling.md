@@ -1,4 +1,4 @@
-# 07 — Event Handling
+# 07 — Event handling
 
 Wrap an event name in `( )` to bind it to a class method.
 

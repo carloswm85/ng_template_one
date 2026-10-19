@@ -1,4 +1,4 @@
-# 16 — Getting Form Control Values
+# 16 — Getting form control values
 
 Read form input values in the template via interpolation, or programmatically via `this.property`.
 

@@ -1,4 +1,4 @@
-# 06 — Property Binding
+# 06 — Property binding
 
 Wrap an attribute name in `[ ]` to bind it dynamically to a class property.
 

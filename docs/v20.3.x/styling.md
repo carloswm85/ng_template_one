@@ -1,61 +1,52 @@
-- [Angular 20.3.x styling techniques](#angular-203x-styling-techniques)
-  - [Table of Contents](#table-of-contents)
+# Angular 20.3.x styling techniques
+
+## Table of contents
+
 - [(1) Component styling techniques](#1-component-styling-techniques)
-  - [Inline metadata styles](#inline-metadata-styles)
-    - [Advantages](#advantages)
-    - [Disadvantages](#disadvantages)
-  - [External stylesheets (`styleUrl` / `styleUrls`)](#external-stylesheets-styleurl--styleurls)
-  - [Style binding](#style-binding)
-  - [Class binding](#class-binding)
-  - [Attribute binding](#attribute-binding)
-  - [Host element binding](#host-element-binding)
-  - [Programmatic styling with `Renderer2`](#programmatic-styling-with-renderer2)
+  - [(1.1) Inline metadata styles](#11-inline-metadata-styles)
+    - [(1.1.1) Advantages](#111-advantages)
+    - [(1.1.2) Disadvantages](#112-disadvantages)
+  - [(1.2) External stylesheets (`styleUrl` / `styleUrls`)](#12-external-stylesheets-styleurl--styleurls)
+  - [(1.3) Style binding](#13-style-binding)
+  - [(1.4) Class binding](#14-class-binding)
+  - [(1.5) Attribute binding](#15-attribute-binding)
+  - [(1.6) Host element binding](#16-host-element-binding)
+  - [(1.7) Programmatic styling with `Renderer2`](#17-programmatic-styling-with-renderer2)
 - [(2) Global styles](#2-global-styles)
 - [(3) Styling frameworks](#3-styling-frameworks)
-  - [Angular Material (official Angular UI library)](#angular-material-official-angular-ui-library)
-    - [Install](#install)
-  - [Bootstrap](#bootstrap)
-  - [Tailwind CSS](#tailwind-css)
-  - [PrimeNG](#primeng)
-  - [NG-ZORRO](#ng-zorro)
-  - [Bulma](#bulma)
-  - [Foundation](#foundation)
-  - [DaisyUI](#daisyui)
+  - [(3.1) Angular Material (official Angular UI library)](#31-angular-material-official-angular-ui-library)
+    - [(3.1.1) Install](#311-install)
+  - [(3.2) Bootstrap](#32-bootstrap)
+  - [(3.3) Tailwind CSS](#33-tailwind-css)
+  - [(3.4) PrimeNG](#34-primeng)
+  - [(3.5) NG-ZORRO](#35-ng-zorro)
+  - [(3.6) Bulma](#36-bulma)
+  - [(3.7) Foundation](#37-foundation)
+  - [(3.8) DaisyUI](#38-daisyui)
 - [(4) Summary table](#4-summary-table)
-
----
 
 > Explanation generated with ChatGPT
 
-# Angular 20.3.x styling techniques
-
-## Table of Contents
-
-- (1) Component styling techniques
-- (2) Global styling
-- (3) Styling frameworks
-- (4) Summary table
-
 ---
 
-# (1) Component styling techniques
+## (1) Component styling techniques
 
 Angular provides several ways to apply styles depending on the scope and use case.
 
-| Technique                                       | Scope              | Best for                        |
-| ----------------------------------------------- | ------------------ | ------------------------------- |
-| Inline metadata styles                          | Component          | Small components, demos         |
-| External stylesheets (`styleUrl` / `styleUrls`) | Component          | Most applications               |
-| Style binding                                   | Individual element | Dynamic values                  |
-| Class binding                                   | Individual element | Toggle CSS classes              |
-| Attribute binding                               | Individual element | Styling through attributes      |
-| Host element binding                            | Component host     | Styling the component itself    |
-| Renderer2                                       | Runtime            | Dynamic DOM manipulation        |
-| Global styles                                   | Entire application | Themes, resets, utility classes |
+| # | Technique                                       | Scope              | Best for                        |
+| ---: | ----------------------------------------------- | ------------------ | ------------------------------- |
+| 1 | Inline metadata styles                          | Component          | Small components, demos         |
+| 2 | External stylesheets (`styleUrl` / `styleUrls`) | Component          | Most applications               |
+| 3 | Style binding                                   | Individual element | Dynamic values                  |
+| 4 | Class binding                                   | Individual element | Toggle CSS classes              |
+| 5 | Attribute binding                               | Individual element | Styling through attributes      |
+| 6 | Host element binding                            | Component host     | Styling the component itself    |
+| 7 | Renderer2                                       | Runtime            | Dynamic DOM manipulation        |
+| 8 | Global styles                                   | Entire application | Themes, resets, utility classes |
 
 ---
 
-## Inline metadata styles
+### (1.1) Inline metadata styles
 
 Styles are declared directly inside the component.
 
@@ -77,18 +68,18 @@ import { Component } from '@angular/core';
 export class UserCardComponent {}
 ```
 
-### Advantages
+#### (1.1.1) Advantages
 
 - Everything is in one file.
 - Useful for examples and small components.
 
-### Disadvantages
+#### (1.1.2) Disadvantages
 
 - Difficult to maintain for larger components.
 
 ---
 
-## External stylesheets (`styleUrl` / `styleUrls`)
+### (1.2) External stylesheets (`styleUrl` / `styleUrls`)
 
 The recommended approach for most applications.
 
@@ -123,7 +114,7 @@ Supported stylesheet formats include:
 
 ---
 
-## Style binding
+### (1.3) Style binding
 
 Bind individual CSS properties dynamically.
 
@@ -147,7 +138,7 @@ Useful for values that change frequently.
 
 ---
 
-## Class binding
+### (1.4) Class binding
 
 Toggle one or more CSS classes.
 
@@ -173,7 +164,7 @@ Or multiple classes:
 
 ---
 
-## Attribute binding
+### (1.5) Attribute binding
 
 Some CSS relies on HTML attributes.
 
@@ -196,7 +187,7 @@ button[data-theme="dark"] {
 
 ---
 
-## Host element binding
+### (1.6) Host element binding
 
 Apply styles to the component's host element.
 
@@ -240,7 +231,7 @@ Useful when the style belongs to the component itself rather than an internal el
 
 ---
 
-## Programmatic styling with `Renderer2`
+### (1.7) Programmatic styling with `Renderer2`
 
 Used when manipulating the DOM safely.
 
@@ -282,17 +273,17 @@ export class DemoComponent {
 
 Common methods:
 
-| Method           | Purpose               |
-| ---------------- | --------------------- |
-| `setStyle()`     | Add or update a style |
-| `removeStyle()`  | Remove a style        |
-| `addClass()`     | Add a CSS class       |
-| `removeClass()`  | Remove a CSS class    |
-| `setAttribute()` | Set an attribute      |
+| # | Method           | Purpose               |
+| ---: | ---------------- | --------------------- |
+| 1 | `setStyle()`     | Add or update a style |
+| 2 | `removeStyle()`  | Remove a style        |
+| 3 | `addClass()`     | Add a CSS class       |
+| 4 | `removeClass()`  | Remove a CSS class    |
+| 5 | `setAttribute()` | Set an attribute      |
 
 ---
 
-# (2) Global styles
+## (2) Global styles
 
 Global styles affect the entire application.
 
@@ -337,15 +328,17 @@ Typical uses:
 
 ---
 
-# (3) Styling frameworks
+## (3) Styling frameworks
 
 Angular works with virtually any CSS framework.
 
-## Angular Material (official Angular UI library)
+---
+
+### (3.1) Angular Material (official Angular UI library)
 
 Designed specifically for Angular and implements Material Design.
 
-### Install
+#### (3.1.1) Install
 
 ```bash
 ng add @angular/material
@@ -376,7 +369,7 @@ Best for:
 
 ---
 
-## Bootstrap
+### (3.2) Bootstrap
 
 Popular responsive CSS framework.
 
@@ -405,7 +398,7 @@ Example:
 
 ---
 
-## Tailwind CSS
+### (3.3) Tailwind CSS
 
 Utility-first CSS framework.
 
@@ -425,7 +418,7 @@ Configure according to the Angular 20 installation guide, then use utility class
 
 ---
 
-## PrimeNG
+### (3.4) PrimeNG
 
 Comprehensive Angular component library.
 
@@ -448,7 +441,7 @@ Best for:
 
 ---
 
-## NG-ZORRO
+### (3.5) NG-ZORRO
 
 Angular implementation of Ant Design.
 
@@ -468,7 +461,7 @@ Example:
 
 ---
 
-## Bulma
+### (3.6) Bulma
 
 Lightweight Flexbox-based framework.
 
@@ -497,7 +490,7 @@ Example:
 
 ---
 
-## Foundation
+### (3.7) Foundation
 
 Responsive front-end framework focused on flexibility.
 
@@ -511,7 +504,7 @@ Include its CSS in the global styles configuration or import it into your global
 
 ---
 
-## DaisyUI
+### (3.8) DaisyUI
 
 Tailwind CSS component library.
 
@@ -531,23 +524,23 @@ Example:
 
 ---
 
-# (4) Summary table
+## (4) Summary table
 
-| Technique / Framework  | Dynamic                    | Scoped       | Typical use                 |
-| ---------------------- | -------------------------- | ------------ | --------------------------- |
-| Inline metadata styles | No                         | ✅           | Small components            |
-| External stylesheet    | No                         | ✅           | Standard component styling  |
-| Style binding          | ✅                         | Element      | Dynamic property values     |
-| Class binding          | ✅                         | Element      | Toggle classes              |
-| Attribute binding      | ✅                         | Element      | Attribute-driven styling    |
-| Host element binding   | ✅                         | Host element | Style the component itself  |
-| Renderer2              | ✅                         | Runtime      | Safe DOM manipulation       |
-| Global styles          | No                         | Entire app   | Shared styles and themes    |
-| Angular Material       | Component library          | App          | Material Design UI          |
-| Bootstrap              | CSS framework              | App          | Responsive layouts          |
-| Tailwind CSS           | Utility framework          | App          | Utility-first styling       |
-| PrimeNG                | Angular component library  | App          | Enterprise components       |
-| NG-ZORRO               | Angular component library  | App          | Ant Design UI               |
-| Bulma                  | CSS framework              | App          | Lightweight responsive UI   |
-| Foundation             | CSS framework              | App          | Responsive web applications |
-| DaisyUI                | Tailwind component library | App          | Rapid UI development        |
+| # | Technique / Framework  | Dynamic                    | Scoped       | Typical use                 |
+| ---: | ---------------------- | -------------------------- | ------------ | --------------------------- |
+| 1 | Inline metadata styles | No                         | ✅           | Small components            |
+| 2 | External stylesheet    | No                         | ✅           | Standard component styling  |
+| 3 | Style binding          | ✅                         | Element      | Dynamic property values     |
+| 4 | Class binding          | ✅                         | Element      | Toggle classes              |
+| 5 | Attribute binding      | ✅                         | Element      | Attribute-driven styling    |
+| 6 | Host element binding   | ✅                         | Host element | Style the component itself  |
+| 7 | Renderer2              | ✅                         | Runtime      | Safe DOM manipulation       |
+| 8 | Global styles          | No                         | Entire app   | Shared styles and themes    |
+| 9 | Angular Material       | Component library          | App          | Material Design UI          |
+| 10 | Bootstrap              | CSS framework              | App          | Responsive layouts          |
+| 11 | Tailwind CSS           | Utility framework          | App          | Utility-first styling       |
+| 12 | PrimeNG                | Angular component library  | App          | Enterprise components       |
+| 13 | NG-ZORRO               | Angular component library  | App          | Ant Design UI               |
+| 14 | Bulma                  | CSS framework              | App          | Lightweight responsive UI   |
+| 15 | Foundation             | CSS framework              | App          | Responsive web applications |
+| 16 | DaisyUI                | Tailwind component library | App          | Rapid UI development        |

@@ -1,4 +1,4 @@
-# 18 — Validating Forms
+# 18 — Validating forms
 
 Pass `Validators` to `FormControl` to enforce rules. Use `FormGroup.valid` to gate submission.
 
@@ -41,14 +41,16 @@ export class App {
 }
 ```
 
-**Built-in validators:**
+---
 
-| Validator                   | Description                  |
-| --------------------------- | ---------------------------- |
-| `Validators.required`       | Field must not be empty      |
-| `Validators.email`          | Must be a valid email format |
-| `Validators.minLength(n)`   | Minimum character count      |
-| `Validators.maxLength(n)`   | Maximum character count      |
-| `Validators.pattern(regex)` | Must match a regex           |
-| `Validators.min(n)`         | Minimum numeric value        |
-| `Validators.max(n)`         | Maximum numeric value        |
+## (1) Built-in validators
+
+| # | Validator                   | Description                  |
+| ---: | --------------------------- | ---------------------------- |
+| 1 | `Validators.required`       | Field must not be empty      |
+| 2 | `Validators.email`          | Must be a valid email format |
+| 3 | `Validators.minLength(n)`   | Minimum character count      |
+| 4 | `Validators.maxLength(n)`   | Maximum character count      |
+| 5 | `Validators.pattern(regex)` | Must match a regex           |
+| 6 | `Validators.min(n)`         | Minimum numeric value        |
+| 7 | `Validators.max(n)`         | Maximum numeric value        |

@@ -1,8 +1,17 @@
-# 25 — Next Steps
+# 25 — Next steps
+
+## Table of contents
+
+- [(1) Signals](#1-signals)
+- [(2) HTTP client](#2-http-client)
+- [(3) Lazy-loaded routes](#3-lazy-loaded-routes)
+- [(4) Further reading](#4-further-reading)
 
 You've completed the Angular fundamentals. Here's what to explore next.
 
-## Signals
+---
+
+## (1) Signals
 
 ```ts
 import { Component, signal, computed, effect } from '@angular/core';
@@ -22,7 +31,9 @@ export class App {
 }
 ```
 
-## HTTP Client
+---
+
+## (2) HTTP client
 
 ```ts
 // app.config.ts
@@ -45,7 +56,9 @@ export class DataService {
 }
 ```
 
-## Lazy-loaded Routes
+---
+
+## (3) Lazy-loaded routes
 
 ```ts
 // app.routes.ts
@@ -59,13 +72,15 @@ export const routes: Routes = [
 ];
 ```
 
-## Further Reading
+---
 
-| Topic         | Link                                          |
-| ------------- | --------------------------------------------- |
-| Signals       | <https://angular.dev/guide/signals>           |
-| HTTP Client   | <https://angular.dev/guide/http>              |
-| Routing       | <https://angular.dev/guide/routing>           |
-| Testing       | <https://angular.dev/guide/testing>           |
-| Angular CLI   | <https://angular.dev/tools/cli>               |
-| Full Tutorial | <https://angular.dev/tutorials/learn-angular> |
+## (4) Further reading
+
+| # | Topic         | Link                                          |
+| ---: | ------------- | --------------------------------------------- |
+| 1 | Signals       | <https://angular.dev/guide/signals>           |
+| 2 | HTTP Client   | <https://angular.dev/guide/http>              |
+| 3 | Routing       | <https://angular.dev/guide/routing>           |
+| 4 | Testing       | <https://angular.dev/guide/testing>           |
+| 5 | Angular CLI   | <https://angular.dev/tools/cli>               |
+| 6 | Full Tutorial | <https://angular.dev/tutorials/learn-angular> |

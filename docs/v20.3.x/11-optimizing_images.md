@@ -1,4 +1,4 @@
-# 11 — Optimizing Images
+# 11 — Optimizing images
 
 `NgOptimizedImage` improves Core Web Vitals by enforcing lazy loading, preventing layout shift, and prioritizing LCP images.
 

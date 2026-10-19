@@ -1,4 +1,4 @@
-# 15 — Forms Overview (Template-Driven)
+# 15 — Forms overview (template-driven)
 
 Template-driven forms use `FormsModule` and `ngModel` for two-way data binding directly in the template.
 

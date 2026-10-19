@@ -1,4 +1,4 @@
-# 02 — Updating the Component Class
+# 02 — Updating the component class
 
 Component logic lives in the TypeScript class. Use **interpolation** `{{ }}` to render class properties in the template.
 
