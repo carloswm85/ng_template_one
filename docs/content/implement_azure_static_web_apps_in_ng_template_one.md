@@ -2,23 +2,25 @@
 
 ## Table of Contents
 
-- [(1) Objective](#1-objective)
-- [(2) Current template assessment](#2-current-template-assessment)
-- [(3) Lessons from the deployment commits](#3-lessons-from-the-deployment-commits)
-- [(4) Target design](#4-target-design)
-- [(5) Implementation instructions](#5-implementation-instructions)
-  - [(5.1) Preserve the generic Angular output path](#51-preserve-the-generic-angular-output-path)
-  - [(5.2) Add the Azure SPA configuration](#52-add-the-azure-spa-configuration)
-  - [(5.3) Copy the Azure configuration during builds](#53-copy-the-azure-configuration-during-builds)
-  - [(5.4) Add the reusable deployment workflow](#54-add-the-reusable-deployment-workflow)
-  - [(5.5) Update project documentation](#55-update-project-documentation)
-- [(6) Configure an Azure deployment](#6-configure-an-azure-deployment)
-- [(7) Verification procedure](#7-verification-procedure)
-- [(8) Acceptance criteria](#8-acceptance-criteria)
-- [(9) Variations](#9-variations)
-- [(10) Mistakes to avoid](#10-mistakes-to-avoid)
-- [(11) Agent handoff prompt](#11-agent-handoff-prompt)
-- [(12) References](#12-references)
+- [Enable Azure Static Web Apps in `ng_template_one`](#enable-azure-static-web-apps-in-ng_template_one)
+  - [Table of Contents](#table-of-contents)
+  - [(1) Objective](#1-objective)
+  - [(2) Current template assessment](#2-current-template-assessment)
+  - [(3) Lessons from the deployment commits](#3-lessons-from-the-deployment-commits)
+  - [(4) Target design](#4-target-design)
+  - [(5) Implementation instructions](#5-implementation-instructions)
+    - [(5.1) Preserve the generic Angular output path](#51-preserve-the-generic-angular-output-path)
+    - [(5.2) Add the Azure SPA configuration](#52-add-the-azure-spa-configuration)
+    - [(5.3) Copy the Azure configuration during builds](#53-copy-the-azure-configuration-during-builds)
+    - [(5.4) Add the reusable deployment workflow](#54-add-the-reusable-deployment-workflow)
+    - [(5.5) Update project documentation](#55-update-project-documentation)
+  - [(6) Configure an Azure deployment](#6-configure-an-azure-deployment)
+  - [(7) Verification procedure](#7-verification-procedure)
+  - [(8) Acceptance criteria](#8-acceptance-criteria)
+  - [(9) Variations](#9-variations)
+  - [(10) Mistakes to avoid](#10-mistakes-to-avoid)
+  - [(11) Agent handoff prompt](#11-agent-handoff-prompt)
+  - [(12) References](#12-references)
 
 ---
 
@@ -105,7 +107,7 @@ config:
   theme: dark
 ---
 
-flowchart LR
+flowchart TD
     A[Push to main] --> B{AZURE_STATIC_WEB_APPS_ENABLED}
     B -->|false or missing| C[Deployment job skipped]
     B -->|true| D[Set up pnpm and Node.js]
